@@ -1,42 +1,41 @@
 public class Doctor {
-    private int doctorId;
-    private String fullName;
+    private int    id;
+    private String name;
+    private int    age;
+    private String gender;
     private String specialization;
-    private String contactNumber;
-    private String availability; // AVAILABLE / BUSY
+    private String contact;
+    private String availability;
 
-    // Constructor for adding new doctor
-    public Doctor(String fullName, String specialization, String contactNumber, String availability) {
-        this.fullName = fullName.toUpperCase();
+    // Constructor for new doctor (no ID yet)
+    public Doctor(String name, int age, String gender,
+                  String specialization, String contact, String availability) {
+        this.name           = name.toUpperCase();
+        this.age            = age;
+        this.gender         = gender.toUpperCase();
         this.specialization = specialization.toUpperCase();
-        this.contactNumber = contactNumber;
-        this.availability = availability.toUpperCase();
+        this.contact        = contact;
+        this.availability   = availability.toUpperCase();
     }
 
-    // Constructor with ID (from DB)
-    public Doctor(int doctorId, String fullName, String specialization, String contactNumber, String availability) {
-        this.doctorId = doctorId;
-        this.fullName = fullName;
+    // Constructor from DB (has ID)
+    public Doctor(int id, String name, int age, String gender,
+                  String specialization, String contact, String availability) {
+        this.id             = id;
+        this.name           = name;
+        this.age            = age;
+        this.gender         = gender;
         this.specialization = specialization;
-        this.contactNumber = contactNumber;
-        this.availability = availability;
+        this.contact        = contact;
+        this.availability   = availability;
     }
 
-    // Getters
-    public int getDoctorId()         { return doctorId; }
-    public String getFullName()      { return fullName; }
-    public String getSpecialization(){ return specialization; }
-    public String getContactNumber() { return contactNumber; }
-    public String getAvailability()  { return availability; }
-
-    // Setters
-    public void setAvailability(String availability) {
-        this.availability = availability.toUpperCase();
-    }
-
-    @Override
-    public String toString() {
-        return String.format("| %-4d | %-25s | %-20s | %-15s | %-10s |",
-                doctorId, fullName, specialization, contactNumber, availability);
-    }
+    public int    getId()             { return id; }
+    public String getName()           { return name; }
+    public int    getAge()            { return age; }
+    public String getGender()         { return gender; }
+    public String getSpecialization() { return specialization; }
+    public String getContact()        { return contact; }
+    public String getAvailability()   { return availability; }
+    public void   setAvailability(String a) { this.availability = a.toUpperCase(); }
 }
